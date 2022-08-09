@@ -13,7 +13,7 @@ FlaskApp-|
 
 
 ## Hostings
-1. log onto the server
+1. log onto the server SSH
 
 2: Download and Install Apache
 - sudo apt update
@@ -27,18 +27,22 @@ FlaskApp-|
 4: Configure apache
 - sudo systemctl status apache 2  
 
-5: Install and enable mod_wsgi
--       sudo apt-get install libapache2-mod-wsgi python-dev
+5: Install and enable mod_wsgi 
+-       sudo apt-get install libapache2-mod-wsgi-py3
+-       for python2.X  use sudo apt-get install libapache2-mod-wsgi python-dev #
 
-6:  Creating flask app
--       cd /var/www 
--       sudo mkdir webApp
--       cd webApp
+6: pip3
+-       sudo apt-get install python3-pip 
 
-7: Install flask
--        sudo apt-get install python-pip 
--        sudo pip install Flask 
--        sudo pip install flask_sqlalchemy
+7: Virtual Env
+-       sudo pip3 install virtualenv
+-       sudo virtualenv name_of_your_venv
+-       source name_of_your_venv/bin/activate # activate 
+
+8: Install flask & pymongo
+-        sudo pip3 install Flask 
+-        sudo pip3 install pymongo
+-        sudo pip3 install -r /path/to/requirements.txt # other requirements
 
 9: Restart apache
 -      sudo service apache2 restart 
